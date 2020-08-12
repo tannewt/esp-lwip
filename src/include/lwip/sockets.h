@@ -744,7 +744,7 @@ static inline int ioctl(int s,long cmd,void *argp)
 #endif /* LWIP_COMPAT_SOCKETS != 2 */
 
 #if ESP_SOCKET                                                          
-#if LWIP_COMPAT_SOCKET_INET == 1
+#if defined(LWIP_COMPAT_SOCKET_INET) && LWIP_COMPAT_SOCKET_INET == 1
 /* Some libraries have problems with inet_... being macros, so please use this define 
    to declare normal functions */
 static inline const char *inet_ntop(int af, const void *src, char *dst, socklen_t size)

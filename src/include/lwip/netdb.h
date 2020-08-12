@@ -130,7 +130,7 @@ int lwip_getaddrinfo(const char *nodename,
 
 #if LWIP_COMPAT_SOCKETS
 #if ESP_SOCKET
-#if LWIP_COMPAT_SOCKET_ADDR == 1
+#if defined(LWIP_COMPAT_SOCKET_ADDR) && LWIP_COMPAT_SOCKET_ADDR == 1
 /* Some libraries have problems with inet_... being macros, so please use this define 
    to declare normal functions */
 static inline int gethostbyname_r(const char *name, struct hostent *ret, char *buf, size_t buflen, struct hostent **result, int *h_errnop)
